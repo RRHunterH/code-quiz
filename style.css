@@ -1,0 +1,25 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+  }
+
+  #quiz-container {
+    text-align: center;
+  }
+
+  button {
+    padding: 10px 20px;
+    margin-top: 10px;
+    font-size: 16px;
+  }
+
+  #quiz-screen, #game-over-screen {
+    max-width: 600px;
+    margin: 0 auto;
+  }
