@@ -8,10 +8,12 @@
 </head>
 <body>
   <div id="quiz-container">
+    <span id="timer" style="position: fixed; top: 10px; right: 10px; color: #fff; font-size: 16px;">Time: 0 seconds</span>
     <div id="start-screen">
       <h1>Code Quiz</h1>
       <p>Test your coding knowledge!</p>
-      <button id="start-button">Start Quiz</button>
+      <button1 id="start-button">Start Quiz</button1>
+      <button2 id="high-scores-button">Check High Scores</button2>
     </div>
     <div id="quiz-screen" style="display: none;">
       <h2 id="question-text">Question goes here?</h2>
@@ -24,6 +26,7 @@
       <p>Your score: <span id="score"></span></p>
       <label for="initials">Enter your initials:</label>
       <input type="text" id="initials" />
+      <span id="timer"> <span id="time-taken">0 seconds</span></span>
       <button id="save-score-button">Save Score</button>
     </div>
   </div>
