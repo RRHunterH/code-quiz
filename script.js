@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', function () {
     let startTime;
     let timerInterval;
     let timeLeft = 60;
-
     let highScores = JSON.parse(localStorage.getItem('highScores')) || [];
 
     const questions = [
@@ -56,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
         endGame();
       }
     }
-  
+
     function setTime() {
       const timerInterval = setInterval(function () {
         if (timeLeft > 0) {
@@ -67,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
       }, 1000);
     }
-  
+
     function showNextQuestion() {
       const currentQuestion = questions[currentQuestionIndex];
       if (currentQuestionIndex < questions.length) {
@@ -76,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function () {
         endGame();
       }
     }
-  
+
     function displayQuestion(question) {
       const questionText = document.getElementById('question-text');
       const choicesList = document.getElementById('choices-list');
@@ -96,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function () {
   
       feedback.textContent = '';
     }
-  
+
     function checkAnswer(question, userChoiceIndex) {
       if (question.correctAnswer === question.choices[userChoiceIndex]) {
         score++;
@@ -107,7 +106,7 @@ document.addEventListener('DOMContentLoaded', function () {
       currentQuestionIndex++;
       showNextQuestion();
     }
-  
+
     function endGame() {
       document.getElementById('quiz-screen').style.display = 'none';
       document.getElementById('game-over-screen').style.display = 'block';
@@ -117,6 +116,7 @@ document.addEventListener('DOMContentLoaded', function () {
   
       saveScore();
     }
+
     function checkAnswer(question, userChoiceIndex) {
         const feedback = document.getElementById('feedback');
       
@@ -125,13 +125,33 @@ document.addEventListener('DOMContentLoaded', function () {
           feedback.textContent = 'Correct!';
         } else {
           timeLeft -= 10;
+          if (timeLeft < 0) {
+            timeLeft = 0;
+          }
           feedback.textContent = 'Wrong!';
         }
-      
+
+        updateTimerDisplay();
         currentQuestionIndex++;
         showNextQuestion();
       }
       
+      function updateTimerDisplay() {
+        timerElement.textContent = `Time: ${timeLeft} seconds`;
+      }
+
+      function updateTimer() {
+        if (timeLeft > 0) {
+          timeLeft--;
+        } else {
+          clearInterval(timerInterval);
+          endGame();
+          return;
+        }
+      
+        timerElement.textContent = `Time: ${timeLeft} seconds`;
+      }
+
     function saveScore() {
       const playerInitials = initialsInput.value.trim();
       if (playerInitials !== '') {
