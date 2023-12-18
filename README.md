@@ -7,4 +7,4 @@ This is a fun quiz site to test your knowledge about code!
 
 [Snapshot of the Portfolio site](TBA)
 
-[Official Site](TBA)
+[Official Site](https://rrhunterh.github.io/code-quiz/)

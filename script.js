@@ -26,6 +26,11 @@ document.addEventListener('DOMContentLoaded', function () {
         choices: ['Counter Strike: Source', 'Corrective Style Sheet', 'Cascading Style Sheet'],
         correctAnswer: 'Cascading Style Sheet'
       },
+      {
+        question: 'What is the syntax for a comment in JavaScript?',
+        choices: ['<!-- Comment -->', '// Comment', '/* Comment */'],
+        correctAnswer: '// Comment'
+      },
     ];
 
     startButton.addEventListener('click', startQuiz);
